@@ -7,6 +7,7 @@
   - [Description](#description)
   - [UTBM Proxy](#utbm-proxy)
   - [Command](#command)
+  - [Build and Deploy](#build-and-deploy)
   - [Development server](#development-server)
   - [Code scaffolding](#code-scaffolding)
   - [Build](#build)
@@ -37,6 +38,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     npm start
 
     npx ng build --prod
+
+    npm test
+
+## Build and Deploy
+
+Use of [Netlify](https://www.netlify.com/) for Build and Deploy.
 
 ## Development server
 
