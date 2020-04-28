@@ -5,8 +5,10 @@
 - [Angular 01](#angular-01)
   - [Table Of Contents](#table-of-contents)
   - [Description](#description)
+  - [Access](#access)
   - [UTBM Proxy](#utbm-proxy)
   - [Command](#command)
+  - [Development Run Command](#development-run-command)
   - [Build and Deploy](#build-and-deploy)
   - [Docker Setup](#docker-setup)
     - [Development](#development)
@@ -24,7 +26,7 @@ Front End Angular for Rails Back End.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
 
-## Access
+## Access
 
 - [Production Burger App](https://angular-ghost.netlify.app/)
 
@@ -49,6 +51,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     npm test
 
     npm install rxjs-compat --save
+
+## Development Run Command
+
+    docker-compose -f ./docker-compose-dev.yml run angular_01_dev sh
 
 ## Build and Deploy
 

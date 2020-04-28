@@ -20,7 +20,7 @@ import { BurgerDetailComponent } from './burger-detail/burger-detail.component';
     BrowserModule,
     AppRoutingModule,
     ApiModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
