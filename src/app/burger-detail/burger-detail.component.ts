@@ -31,5 +31,5 @@ export class BurgerDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
-  }  
+  }
 }
