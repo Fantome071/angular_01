@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BurgersService } from '../api/api/burgers.service';
+import { BurgersService } from '../api_burger/api/burgers.service';
 
 @Component({
   selector: 'app-burger-list',
@@ -9,7 +9,7 @@ import { BurgersService } from '../api/api/burgers.service';
 })
 export class BurgerListComponent implements OnInit {
 
-  burgers;
+  burgerList;
 
   constructor(private burgersService : BurgersService) { }
 
@@ -18,8 +18,7 @@ export class BurgerListComponent implements OnInit {
   }
 
   getBurgers() : void {
-    this.burgers = this.burgersService.listBurgers()
-        .subscribe(burgers => this.burgers = burgers);
+    this.burgerList = this.burgersService.listBurgers()
+        .subscribe(burgerList => this.burgerList = burgerList);
   }
-
 }

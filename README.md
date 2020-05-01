@@ -8,17 +8,16 @@
   - [Access](#access)
   - [UTBM Proxy](#utbm-proxy)
   - [Command](#command)
+    - [Init Project](#init-project)
+    - [Prod Build](#prod-build)
+    - [Generate Component](#generate-component)
+    - [Swagger Library (Optionnal)](#swagger-library-optionnal)
+    - [Material Library](#material-library)
   - [Development Run Command](#development-run-command)
   - [Build and Deploy](#build-and-deploy)
   - [Docker Setup](#docker-setup)
     - [Development](#development)
-  - [Development server](#development-server)
-  - [Code scaffolding](#code-scaffolding)
-  - [Build](#build)
-  - [Running unit tests](#running-unit-tests)
-  - [Running end-to-end tests](#running-end-to-end-tests)
   - [Swagger Burger API Integration](#swagger-burger-api-integration)
-  - [Further help](#further-help)
 
 ## Description
 
@@ -37,20 +36,36 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Command
 
-    npm install -g @angular/cli@     # Global Install
-    npm install @angular/cli@
+### Init Project
 
-    npx ng new burger --directory=.
-      y
-      CSS => Enter
+    npm install -g @angular/cli@     # Global Install
+    npm install @angular/cli@        # Local Install
+
+    npx ng new burger --directory=. --routing=true --style=css
     
     npm start
 
+### Prod Build
+
     npx ng build --prod
 
-    npm test
+### Generate Component
+
+    npx ng generate component burger-list
+    npx ng generate component burger-detail
+
+### Swagger Library (Optionnal)
 
     npm install rxjs-compat --save
+
+### Material Library
+
+[Documentation](https://material.angular.io/components/categories)
+
+    npx ng add @angular/material
+    => Theme
+    => Yes
+    => Yes
 
 ## Development Run Command
 
@@ -68,10 +83,10 @@ Use of [Netlify](https://www.netlify.com/) for Build and Deploy.
 ### Development
 
     # Build
-    docker build -t angular_01 -f Dockerfile-dev .
+    docker-compose -f docker-compose-dev.yml build
 
     # Start
-    docker-compose -f docker-compose-dev.yml up -d --build
+    docker-compose -f docker-compose-dev.yml up -d
 
     # Stop
     docker-compose -f docker-compose-dev.yml down
@@ -79,38 +94,14 @@ Use of [Netlify](https://www.netlify.com/) for Build and Deploy.
 ### Production
 
     # Build
-    docker build -t angular_01 -f Dockerfile-prod .
+    docker-compose -f docker-compose-prod.yml build
 
     # Start
-    docker-compose -f docker-compose-prod.yml up -d --build
+    docker-compose -f docker-compose-prod.yml up -d
 
     # Stop
     docker-compose -f docker-compose-prod.yml down
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
 ## Swagger Burger API Integration
 
 Here is the link of Swagger API Definition : [Link](https://app.swaggerhub.com/apis/LPA2-Automne2016/burger/1.0-oas3#/)
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

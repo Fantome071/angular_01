@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
-import { BurgersService } from '../api/api/burgers.service';
+import { BurgersService } from '../api_burger/api/burgers.service';
 
 @Component({
   selector: 'app-burger-detail',
@@ -9,19 +11,25 @@ import { BurgersService } from '../api/api/burgers.service';
 })
 export class BurgerDetailComponent implements OnInit {
 
-  @Input() id;
-
   burger;
 
-  constructor(private burgersService : BurgersService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private burgersService : BurgersService
+    ) { }
 
   ngOnInit(): void {
-    this.getBurger(this.id);
+    this.getBurger();
   }
 
-  getBurger(id) : void {
-    this.burger = this.burgersService.burgerDetail(this.id)
+  getBurger() : void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.burger = this.burgersService.burgerDetail(id)
         .subscribe(burger => this.burger = burger);
   }
 
+  goBack(): void {
+    this.location.back();
+  }  
 }

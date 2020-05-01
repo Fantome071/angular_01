@@ -1,21 +1,17 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-card my-card mdc-layout-grid__cell" *ngFor="let burger of burgers">
-      <div class="mdc-card__primary-action demo-card__primary-action">
-        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url({{burger.image}});"></div>
-        <div class="demo-card__primary">
-          <h2 class="mdc-typography mdc-typography--headline6">{{burger.name}}</h2>
-          <h3 class="mdc-typography mdc-typography--subtitle2">{{burger.price}} €</h3>
-        </div>
-      </div>
-      <div class="mdc-card__actions">
-        <div class="mdc-card__action-buttons">
-          <button class="mdc-button mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> View</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script type="script/javascript">
-</script>
+<mat-grid-list cols="6" rowHeight="200px">
+  <mat-grid-tile [colspan]="2" [rowspan]="3" *ngFor="let burger of burgerList">
+    <mat-card class="card-list-burger">
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>{{burger.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{burger.image}}">
+      <mat-card-content>
+        <p>{{burger.price}} €</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-stroked-button routerLink="burger/{{burger.id}}">View</a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

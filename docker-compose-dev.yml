@@ -8,5 +8,7 @@ services:
       dockerfile: Dockerfile-dev
     volumes:
     - ./src:/app/src
+    - ./package.json:/app/package.json
+    - ./package-lock.json:/app/package-lock.json
     ports:
     - 4200:4200
